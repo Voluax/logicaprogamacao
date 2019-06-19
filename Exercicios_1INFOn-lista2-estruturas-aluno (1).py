@@ -64,41 +64,51 @@ def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
      de anos que fuma, e retorna o total de dias perdidos, sabendo que
      cada cigarro reduz a vida em 10 minutos."""
-    
+    Diasperdidos = (365 * anos_fumando) * (cigarros_fumados_por_dia * 10) /1440
+    return round(Diasperdidos, 2)
 
 def dois_elevado_a_um_milhao():
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
     algarismos"""
-    
-
+    Quantidadedealgarismos = 2 ** 1000000 
+    a = str(Quantidadedealgarismos)
+    return len(a)
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     """ Recebe as notas das 2 provas e 2 exercícios de programação e retorna
     se o aluno foi ou não aprovado. As provas têm peso 7 e os exercícios
     têm peso 3. Cada parcial tem peso igual."""
-
+    Media = (p1*7 + p2*7 + ep1*3 + ep2*3)/(7 + 7 + 3 + 3)
+    return Media >= 7.0
 
 def salario(valor_hora, horas_mensais):
     """ Recebe quanto ganha por hora e quantas horas trabalho ao mês,
     e retorna o salário líquido.
-
     Descontos:
     - INSS é 8% do salário bruto
     - IR é 11% do salário bruto
     - Sindicato é 5% do salário bruto"""
-
+    salario = (valor_hora * horas_mensais)
+    salarioliquido = (((salario - salario*0.08)-salario*0.05)-salario*0.11)
+    return round(salarioliquido, 2)
 
 def tinta(metros_pintar):
     """ Recebe quantos metros quadrados precisa pintar,
     e retorna a quantidade de latas de tinta a comprar.
     A cobertura da tinta é de 3 metros por litro de tinta
     Cada lata possui 18 litros de tinta"""
-
+    import math
+    quantidadelata = metros_pintar /(3*18)
+    return math.ceil(quantidadelata)
 
 def duzias(ovos):
     ''' Receba o número de ovos e devolva a quantidade de dúzias
     correspondente. Considere sempre dúzias cheias, arredondando pra
     cima se necessário.
     '''
+    import math
+    duzias = ovos/12
+    return math.ceil(duzias)
+
 
 
 def decompor_numero(numero):
@@ -107,12 +117,16 @@ def decompor_numero(numero):
     centenas, dezenas e unidades do mesmo.
     Obs.: não utilize operações com strings
     '''
+    C = numero // 100 %10
+    D = numero // 10 %10
+    U = numero // 1 %10
+    return C, D, U
 
 
 def palindrome(texto):
     """Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente."""
-
+    
 
 def troca_caixa(texto):
     """Vogais ficam em caixa alta (maiúsculas)
