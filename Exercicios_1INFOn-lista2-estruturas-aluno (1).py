@@ -126,12 +126,21 @@ def decompor_numero(numero):
 def palindrome(texto):
     """Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente."""
-    
+    texto = [texto]
+    inverter = texto.reverse()
+    inverter = texto[::-1]
+    return inverter == texto[::-1]
 
 def troca_caixa(texto):
     """Vogais ficam em caixa alta (maiúsculas)
     Consoantes ficam em caixa baixa (minúsculas)"""
-
+    texto = texto.lower()
+    texto = texto.replace("a", "A")
+    texto = texto.replace("e", "E")
+    texto = texto.replace("i", "I")
+    texto = texto.replace("o", "O")
+    texto = texto.replace("u", "U")
+    return texto
 
 def imprime_mes_por_extenso(data):
     """Faça um programa que solicite a data de nascimento (dd/mm/aaaa)
@@ -142,59 +151,65 @@ def imprime_mes_por_extenso(data):
 def encontra_caracter(texto, caracter_procurado):
     """Receba um texto e retorne a localização da primeira vez que
     aparece o caracter especificado"""
-
+    texto = texto.find(caracter_procurado)
+    return texto
 
 def é_azarado(numero):
     """O último dígito não pode ser igual ao primeiro, porque isso dá azar."""
-
+    numero = str(numero)
+    return numero[0] == numero [-1]
 
 def ondernamento_contrario(lista):
     """ Devolve a lista invertida"""
-
+    lista.reverse()
+    return lista
+    
 
 def maximo(lista):
     """ Calcule o maior número da 'lista' """
-
+    return max(lista)
 
 def minimo(lista):
     """ Calcule o menor número da 'lista' """
-
+    return min(lista)
 
 def maior_menor(lista):
     """ Calcule o maior e o menor numero da 'lista' """
-
+    return max(lista), min(lista)
 
 def media_saltos_lista(saltos):
     """Receba uma lista com os saltos de um atleta e calcule a média
     dos seus saltos, sabendo que o melhor e o pior saltos são desconsiderados.
     """
-
+    media = (sum(saltos))/(len(saltos))
+    return round(media, 1)
 
 def contem(lista, item_procurado):
     """Verifica se uma lista contém um item e devolve um valor booleano."""
-
+    return item_procurado in lista
 
 def conta(lista, item_procurado):
     """Informa quantas ocorrências de um item existem numa lista."""
-
+    return lista.count(item_procurado)
 
 def mes_extenso(mes):
     """Receba um número correspondente ao mês e devolva o nome do mês,
     com 3 letras. Ex.: 1-jan, 2-fev, ..., 12-dez.
     Use uma lista com os nomes dos meses."""
-
-
+    
 def media_temperaturas(temperaturas):
     """Devolva a média das temperaturas.
     """
-
+    media = (sum(temperaturas))/(len(temperaturas))
+    return round(media, 2)
 
 def leet(texto):
     '''
     Converte texto em leet
     troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
     '''
-
+    text = texto.replace("a", "4").replace("e", "3").replace("g", "9").replace("i", "1").replace("s", "5").replace("t", "7").replace("o", "0").replace("A", "4").replace("E", "3").replace("G", "9").replace("I", "1").replace("S", "5").replace("T", "7").replace("O", "0")
+    return text
 
 def apaga(s, n):
     """
@@ -203,7 +218,7 @@ def apaga(s, n):
     apaga('kitten', 1) -> 'ktten'
     apaga('kitten', 4) -> 'kittn'
     """
-
+    return s[0:n] + s[1 + n:]
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
